@@ -102,7 +102,7 @@ run_sctype <- function(seurat_object, known_tissue_type = NULL, assay = "RNA", s
     }))
     sctype_scores = cL_resutls %>% group_by(cluster) %>% top_n(n = 1, wt = scores)  
     # set low-confident (low ScType score) clusters to "unknown"
-    sctype_scores$type[as.numeric(as.character(sctype_scores$scores)) < sctype_scores$ncells/4] = "Unknown"
+    sctype_scores$type[as.numeric(as.character(sctype_scores$scores)) <- sctype_scores$ncells/4] = "Unknown"
     seurat_object_res=seurat_object
     seurat_object_res@meta.data[name] = ""
     for(j in unique(sctype_scores$cluster)){
