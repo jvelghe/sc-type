@@ -110,7 +110,7 @@ run_sctype <- function(seurat_object, known_tissue_type = NULL, assay = "RNA", s
         seurat_object_res@meta.data[seurat_object_res@meta.data$seurat_clusters == j,name] = as.character(cl_type$type[1])
     }
     if(plot){
-        plot_ = DimPlot(seurat_object_res, reduction = "umap", group.by = name)   
+        plot_ = DimPlot(seurat_object_res, reduction = "umap", group.by = name, raster = F)   
         print(plot_)
     }
     text_=paste("New metadata added: ",name)
